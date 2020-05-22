@@ -1,11 +1,14 @@
-<div class="container">
-  <h1>IT IS COCKTAIL TIME</h1>
-  <ul>
-    <% @cocktails.each do |cocktail| %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(../assets/images/banner.jpg);">
+  <div class="banner-content">
+    <h1>IT IS COCKTAIL TIME!</h1>
+    <p>Life changing cocktail recipes brought to you by Le Wagon</p>
+    <ul>
+      <% @cocktails.each do |cocktail| %>
       <li>
         <%= link_to "#{cocktail.name}", cocktail_path(cocktail) %>
       </li>
-    <% end %>
-  </ul>
-  <%= link_to "new cocktail", new_cocktail_path(@cocktail) %>
+      <% end %>
+    </ul>
+    <%= link_to "New Cocktail", new_cocktail_path(@cocktail), class: "btn btn-flat" %>
+  </div>
 </div>
