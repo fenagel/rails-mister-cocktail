@@ -1,7 +1,7 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://source.unsplash.com/1600x900/?cocktail');">
+<div class="banner" style="background-image: url(<%= cloudinary_url ("http://res.cloudinary.com/fenagel/image/upload/v1592814447/dhjk6pln1aytzclywmnr.jpg") %>)">
   <div class="banner-content">
     <h1>IT IS COCKTAIL TIME!</h1>
-    <p>Life changing cocktail recipes brought to you by Le Wagon</p>
+    <p>We got you covered with awesome cocktail recipes. Feel free to add new recipes and reviews.</p>
     <%= link_to "New Cocktail", new_cocktail_path, class: "btn btn-primary btn-lg" %>
   </div>
 </div>
@@ -9,7 +9,7 @@
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-12 col-md-6 col-lg-3 mb-3">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?cocktail');">
+        <div class="card" style="background-image: url('<%= cl_image_path cocktail.photo.key %>');">
           <div class="card-description">
             <h2><%= cocktail.name %></h2>
           </div>

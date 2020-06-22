@@ -1,13 +1,16 @@
 <div class="container pt-2">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktail.photo.key %>');">
+  <div class="banner" style="background-image: url('<%= cl_image_path @cocktail.photo.key %>');">
     <div class="banner-content">
     <h1><%= @cocktail.name %></h1>
     </div>
   </div>
   <%= link_to "Back to all cocktails", root_path %>
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-sm-12 col-md-6 pt-5">
-      <h3>Recipe</h3>
+      <div class="row justify-content-between" id="recipes">
+        <h3>Recipe</h3>
+        <%= link_to "new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+      </div>
       <table class="table table-bordered">
         <tbody>
           <thead>
@@ -20,16 +23,18 @@
               <td><%= dose.ingredient.name %></td>
               <td><%= dose.description %></td>
               <td>
-                <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
-                  <i class="fa fa-trash destroy_dose"></i>
-                <% end %>
+                <div class="d-flex justify-content-between mr-2 ml-2">
+                  <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
+                    <i class="fa fa-trash destroy_dose"></i>
+                  <% end %>
+                  <%= link_to edit_cocktail_dose_path(@cocktail, dose) do %>
+                  <i class="fa fa-edit"></i>
+                  <% end %>
+                </div>
               </td>
             </tr>
           <% end %>
         </tbody>
       </table>
-    </div>
-    <div class="col-sm-12 col-md-6 pt-5">
-      <%= link_to "new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
     </div>
   </div>
