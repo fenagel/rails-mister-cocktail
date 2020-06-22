@@ -3,3 +3,16 @@
   margin-left: 0px !important;
   margin-bottom: 10px !important;
 }
+.list-group {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+  margin-bottom: 10px !important;
+}
+
+.list-group-item {
+  background-color: $light-gray;
+  border: none;
+  margin-top: 10px;
+  margin-left: -15px;
+  font-style: italic;
+}

@@ -1,0 +1,11 @@
+<div class="container pt-2">
+  <div class="banner" style="background-image: url('<%= cl_image_path @cocktail.photo.key %>');">
+    <div class="banner-content">
+    <h1><%= @cocktail.name %></h1>
+    </div>
+  </div>
+  <%= simple_form_for [ @cocktail, @review ] do |f| %>
+    <%= f.input :content %>
+    <%= f.submit "Submit Review", class: "btn btn-primary" %>
+  <% end %>
+</div>

@@ -5,9 +5,9 @@
     </div>
   </div>
   <%= link_to "Back to all cocktails", root_path %>
-  <div class="row justify-content-center">
+  <div class="row ">
     <div class="col-sm-12 col-md-6 pt-5">
-      <div class="row justify-content-between" id="recipes">
+      <div class="d-flex justify-content-between" id="recipes">
         <h3>Recipe</h3>
         <%= link_to "new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
       </div>
@@ -37,4 +37,13 @@
         </tbody>
       </table>
     </div>
+    <div class="col-sm-12 col-md-6 pt-5">
+      <%= link_to 'Leave a review', new_cocktail_review_path(@cocktail), class: "btn btn-primary" %>
+      <ul class="list-group">
+        <% @cocktail.reviews.each do |review| %>
+          <li class="list-group-item">"<%= review.content %>"</li>
+        <% end %>
+      </ul>
+    </div>
   </div>
+</div>
